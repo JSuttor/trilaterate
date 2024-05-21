@@ -1,0 +1,42 @@
+<link type="text/css" rel="stylesheet" href="./assets/trilaterate.css">
+
+<body>
+    <div class="form">
+        <div class="header">GPS</div>
+        <div class="input-container">
+            <label class="label" for="dist1">Distance A</label>
+            <input class="input" type="number" id="dist1" name="dist1" placeholder="###" />
+            <span class='unit'>inches</span>
+            <br><br>
+            <label class="label" for="dist2">Distance B</label>
+            <input class="input" type="number" id="dist2" name="dist2" placeholder="###" />
+            <span class='unit'>inches</span>
+            <br><br>
+            <label class="label" for="dist3">Distance C</label>
+            <input class="input" type="number" id="dist3" name="dist3" placeholder="###" />
+            <span class='unit'>inches</span>
+            <br><br>
+            <div class="button-container">
+                <button class="button" onclick="update()">LOCATE</button>
+            </div>
+        </div>
+        <div class="message" id="message">Enter the distances!</div>
+    </div>
+
+    <div class="content">
+        <div class="disp-box">
+            
+            <div id="line1" class="line line1"></div>
+            <div id="line2" class="line line2"></div>
+            <div id="line3" class="line line3"></div>
+
+            <div id="satellite1" class="satellite satellite1"></div>
+            <div id="satellite2" class="satellite satellite2"></div>
+            <div id="satellite3" class="satellite satellite3"></div>
+            
+            <div class="car"></div>
+        </div>
+    </div>
+
+    <script src="./assets/trilaterate.js"></script>
+</body>

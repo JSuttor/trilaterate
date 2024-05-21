@@ -1,0 +1,191 @@
+:root {
+    --carHeight: 60px;
+    --carWidth: 60px;
+    --satHeight: 60px;
+    --satWidth: 60px;
+    --disp: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: rgba(255, 255, 255, .5);
+    background-image: url('./earth.jpg');
+    background-blend-mode: lighten;
+    background-size: cover;
+
+    .form {
+        margin-top: 40px;
+        float: left;
+        width: 30%;
+
+        .header {
+            text-align: center;
+            font-size: 100px;
+        }
+
+        .input-container {
+            margin: auto;
+            margin-top: 40px;
+            width: fit-content;
+
+            .input {
+                font-size: 16px;
+                height: 28px;
+                font-weight: 700;
+                border-radius: 4px;
+                border: solid black 2px;
+            }
+
+            .label {
+                display: block;
+                font-weight: 700;
+            }
+
+            .button-container {
+                text-align: center;
+
+                .button {
+                    height: 40px;
+                    width: 150px;
+                    font-weight: 700;
+                    font-size: 20px;
+                    border-radius: 20px;
+                    border: solid black 4px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+        .message {
+            margin: auto;
+            margin-top: 20px;
+            width: auto;
+            border: solid 2px;
+            height: 80px;
+            width: 300px;
+            padding: 5px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, .5);
+        }
+    }
+
+    .content {
+        float: right;
+        width: 70%;
+
+        .disp-box {
+            margin: auto;
+            margin-top: 40px;
+            height: var(--dispSize);
+            width: var(--dispSize);
+            border: solid;
+            position: relative;
+
+            .car {
+                display: var(--disp);
+                top: calc((var(--dispSize) / var(--scale) * var(--posY)) - (var(--carHeight) / 2));
+                left: calc((var(--dispSize) / var(--scale) * var(--posX)) - (var(--carWidth) / 2));
+                height: var(--carWidth);
+                width: var(--carHeight);
+                position: absolute;
+                background-color: white;
+                border: solid black 3px;
+                border-radius: 50%;
+                background-position: 2px 2px;
+                background-image: url('./car.svg');
+                background-size: calc(var(--carHeight) - 10px);
+                background-repeat: no-repeat;
+                box-sizing: border-box;
+            }
+
+            .line {
+                display: var(--disp);
+                border: solid;
+                position: absolute;
+                background-color: black;
+
+                &:after {
+                    left: 50%;
+                    top: -40px;
+                    font-size: 32px;
+                }
+
+                &.line1 {
+                    &:after {
+                        position: absolute;
+                        content: var(--distA);
+                    }
+                }
+
+                &.line2 {
+                    &:after {
+                        position: absolute;
+                        content: var(--distB);
+                    }
+                }
+
+                &.line3 {
+                    &:after {
+                        position: absolute;
+                        content: var(--distC);
+                    }
+                }
+            }
+
+            .satellite {
+                height: var(--satHeight);
+                width: var(--satWidth);
+                position: absolute;
+                background-size: contain;
+                background-color: white;
+                box-sizing: border-box;
+                border: solid black 3px;
+                border-radius: 50%;
+                background: url("./satellite.svg");
+                background-position: 3px 3px;
+                background-size: calc(var(--carHeight) - 12px);
+
+                &.satellite1 {
+                    top: calc((var(--dispSize) / var(--scale) * var(--sat1y)) - (var(--satHeight) / 2));
+                    left: calc((var(--dispSize) / var(--scale) * var(--sat1x)) - (var(--satWidth) / 2));
+
+                    &:after {
+                        content: 'A';
+                        position: absolute;
+                        font-size: 40px;
+                        top: 4px;
+                        left: -35px;
+                    }
+                }
+
+                &.satellite2 {
+                    top: calc((var(--dispSize) / var(--scale) * var(--sat2y)) - (var(--satHeight) / 2));
+                    left: calc((var(--dispSize) / var(--scale) * var(--sat2x)) - (var(--satWidth) / 2));
+
+                    &:after {
+                        content: 'B';
+                        position: absolute;
+                        font-size: 40px;
+                        top: 4px;
+                        left: 60px;
+                    }
+                }
+
+                &.satellite3 {
+                    top: calc((var(--dispSize) / var(--scale) * var(--sat3y)) - (var(--satHeight) / 2));
+                    left: calc((var(--dispSize) / var(--scale) * var(--sat3x)) - (var(--satWidth) / 2));
+
+                    &:after {
+                        content: 'C';
+                        position: absolute;
+                        font-size: 40px;
+                        top: 4px;
+                        left: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
